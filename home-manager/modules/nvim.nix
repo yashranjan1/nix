@@ -9,7 +9,7 @@
   in
   {
   xdg = {
-    configFile.nvim.source = ../nvim;
+    configFile.nvim.source = ../../nvim;
   };
 
   home.sessionVariables = {
