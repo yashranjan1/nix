@@ -13,7 +13,7 @@
 		};
 	};
 	
-	outputs = { nixpkgs, home-manager, ... } : 
+	outputs = { nixpkgs, home-manager, nvf, ... } : 
 		let 
 			system = "x86_64-linux";
 		in {
@@ -27,7 +27,7 @@
 				config.allowUnfree = true;
 			};
 			modules = [ 
-					# nvf.homeManagerModules.default
+					nvf.homeManagerModules.default
 					./home-manager/home.nix
 			];
 		};

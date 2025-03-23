@@ -13,7 +13,6 @@
 
       hms = "home-manager switch --flake ${flakeDir}";
 
-      vim = "nvim";
     };
 
     history.size = 10000;
