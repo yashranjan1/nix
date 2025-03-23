@@ -7,6 +7,9 @@
 			url = "github:nix-community/home-manager/release-24.11";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		nvf = {
+			url = "github:notashelf/nvf";
+		};
 	};
 	
 	outputs = { nixpkgs, home-manager, ... } : 
@@ -22,7 +25,10 @@
 				inherit system;
 				config.allowUnfree = true;
 			};
-			modules = [ ./home-manager/home.nix ];
+			modules = [ 
+					nvf.homeManagerModules.default
+					./home-manager/home.nix
+			];
 		};
 	};
 }
