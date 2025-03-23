@@ -2,6 +2,6 @@
 	imports = [
 		./apps.nix
 		./git.nix
-		./nvf.nix
+		# ./nvf.nix
 	];
 }

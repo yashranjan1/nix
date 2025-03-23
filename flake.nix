@@ -9,6 +9,7 @@
 		};
 		nvf = {
 			url = "github:notashelf/nvf";
+			inputs.nixpkgs.follows = "nixpkgs";
 		};
 	};
 	
@@ -26,7 +27,7 @@
 				config.allowUnfree = true;
 			};
 			modules = [ 
-					nvf.homeManagerModules.default
+					# nvf.homeManagerModules.default
 					./home-manager/home.nix
 			];
 		};
