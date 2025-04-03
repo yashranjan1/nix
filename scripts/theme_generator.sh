@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env zsh
 
 # Define the base directory
 BASE_DIR="/home/yash/theme"

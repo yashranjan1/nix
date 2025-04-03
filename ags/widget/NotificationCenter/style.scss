@@ -1,0 +1,35 @@
+.notification-center-box { 
+    margin: 10px 20px 20px;
+    background-color: $theme_bg_color;
+    min-width: 330px;
+    min-height: 800px;
+    padding: 10px 0px 10px 5px;
+    border-radius: 7px;
+}
+
+scrollable {
+    viewport {
+        border: none;
+    }
+}
+
+.notif-scroll {
+
+    min-height: 300px;    
+    min-width: 200px;
+    
+}
+
+.notification-header {
+    font-size: 24px;
+    margin: 10px;
+    font-weight: bold;
+}
+
+.clear-all-btn {
+    background-color: transparent;
+    color: $theme_fg_color;
+    border-radius: 10px;
+    padding: 0px 15px;    
+    margin: 5px;
+}

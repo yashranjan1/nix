@@ -1,0 +1,36 @@
+@use "sass:color";
+
+.calendar-center-box {
+    background-color: $theme_bg_color;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 20px;
+}
+
+.calendar {
+    background-color: $theme_alt_bg_color;
+    color: $theme_fg_color;
+    border-radius: 10px;
+    margin: 0px;
+    padding: 10px;
+}
+
+.calendar:selected{
+    background-color: $accent;
+    color: $theme_bg_color;
+}
+
+.calendar:indeterminate {
+    color: color.adjust($theme_fg_color, $alpha: -0.7);
+}
+
+.calendar.highlight, .calendar.header, .calendar.button {
+    background-color: transparent;
+    border: none;
+    color: $accent;
+    font-weight: 900;
+}
+
+.calendar.header {
+    font-size: 50px;
+}
