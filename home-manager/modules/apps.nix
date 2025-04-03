@@ -2,10 +2,14 @@
 
 {
 	home.packages = with pkgs; [
+        # apps
 		google-chrome
-		gh
-		lsd
 		nautilus
 		discord
+
+        # packages
+		gh
+		lsd
+        fastfetch
 	];
 }

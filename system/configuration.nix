@@ -18,6 +18,10 @@
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.useOSProber = true;
 
+  boot.extraModulePackages = [
+        pkgs.linuxKernel.packages.linux_6_6.v4l2loopback
+  ];
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -128,6 +132,8 @@
   environment.systemPackages = with pkgs; [
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     git
+    pulseaudio
+    v4l-utils
     zig
     unzip
     clang
