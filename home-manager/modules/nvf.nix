@@ -92,7 +92,18 @@
                     enableLSP = true;
                     enableTreesitter = true;
                 };
-                autocomplete.nvim-cmp.enable = true;
+                autocomplete.nvim-cmp = {
+                    enable = true;
+                    mappings = {
+                        close = null;
+                        complete = null;
+                        confirm = null;
+                        next = null;
+                        previous = null;
+                        scrollDocsDown = null;
+                        scrollDocsUp = null;
+                    };
+                };
 
                 mini = {
                     statusline = {
@@ -103,6 +114,79 @@
                 # telescope
                 telescope = {
                     enable = true;
+                    mappings = {
+                        buffers = null;
+                        diagnostics = null;
+                        findFiles = "<leader>sf";
+                        findProjects = null;
+                        gitBranches = null;
+                        gitBufferCommits = null;
+                        gitCommits = null;
+                        gitStash = null;
+                        gitStatus = null;
+                        helpTags = null;
+                        liveGrep = null;
+                        lspDefinitions = null;
+                        lspDocumentSymbols = null;
+                        lspImplementations = null;
+                        lspReferences = null;
+                        lspTypeDefinitions = null;
+                        lspWorkspaceSymbols = null;
+                        open = null;
+                        resume = null;
+                        treesitter = null;
+                    };
+                };
+
+                git = {
+                    git-conflict = {
+                        mappings = {
+                            both = null;
+                            nextConflict = null;
+                            none = null;
+                            ours = null;
+                            prevConflict = null;
+                            theirs = null;
+                        };
+                    };
+                    enable = true;
+                    gitsigns = {
+                        mappings = {
+                            blameLine = null;
+                            diffProject = null;
+                            diffThis = null;
+                            nextHunk = null;
+                            previousHunk = null;
+                            previewHunk = null;
+                            resetBuffer = null;
+                            resetHunk = null;
+                            stageBuffer = null;
+                            stageHunk = null;
+                            toggleBlame = null;
+                            toggleDeleted = null;
+                            undoStageHunk = null;
+                        }; 
+                        enable = true;
+                        codeActions.enable = true;
+                        setupOpts = {
+                            "signs" = {
+                                "add" = { "text" = "+"; };
+                                "change" = { "text" = "~"; };
+                                "delete" = { "text" = "_"; };
+                                "topdelete" = { "text" = "‾"; };
+                                "changedelete" = { "text" = "~"; };
+                            };
+                        };
+                    };
+                };
+                binds = {
+                    whichKey = {
+                        enable = true;
+                        register = pkgs.lib.mkForce {
+                            "<leader>s" = "[S]earch";
+                            # "<leader>lg" = "Telescope Git";
+                        };
+                    };
                 };
             };
         };

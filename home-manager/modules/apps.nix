@@ -5,6 +5,7 @@
         # apps
 		google-chrome
         blueberry
+        obs-studio
 		nautilus
 		discord
 
