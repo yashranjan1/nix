@@ -4,7 +4,7 @@
 		./apps.nix
 		./git.nix
         ./gtk.nix
-		./nvf.nix
+		./nvf/nvf.nix
         ./scripts.nix
 	];
 }
