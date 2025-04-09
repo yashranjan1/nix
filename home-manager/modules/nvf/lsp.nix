@@ -1,4 +1,5 @@
 {
+    lspconfig.enable = true;
     mappings = {
         addWorkspaceFolder = null;
         codeAction = null;

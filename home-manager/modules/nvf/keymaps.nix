@@ -23,5 +23,11 @@
         action = "<cmd><CR>";
         silent = true;
     }
+    {
+        key = "<leader>f";
+        action = ''<cmd>lua require("conform").format({ async = true, lsp_format = "fallback" })<CR>'';
+        mode = "n";
+        desc = "[F]ormat buffer";
+    }
 ]
 
