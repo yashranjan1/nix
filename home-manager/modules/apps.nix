@@ -17,6 +17,7 @@ in {
     gh
     go
     wl-clipboard
+    gopls
     jetbrains-mono
     unstable.nerd-fonts.jetbrains-mono
     bootdev
