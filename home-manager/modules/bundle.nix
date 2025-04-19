@@ -1,10 +1,12 @@
 {
-	imports = [
-        ./ags.nix
-		./apps.nix
-		./git.nix
-        ./gtk.nix
-		./nvf/nvf.nix
-        ./scripts.nix
-	];
+  imports = [
+    ./ags.nix
+    ./apps.nix
+    ./git.nix
+    ./gtk.nix
+    ./hyprland/default.nix
+    ./nvf/nvf.nix
+    ./scripts.nix
+    ./wal.nix
+  ];
 }
