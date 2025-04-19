@@ -1,0 +1,5 @@
+{
+    oil-nvim = {
+        enable = true;
+    };
+}

@@ -1,6 +1,7 @@
-{ pkgs, ... } : {
+{ pkgs, lib, ... } : {
     programs.nvf = {
         enable = true;
+
 
         settings = {
             vim = {
@@ -20,11 +21,6 @@
                     maplocalleader = " ";
                 };
 
-                mini = {
-                    statusline = {
-                        enable = true;
-                    };
-                };
 
                 lazy = {
                     plugins = {
@@ -42,7 +38,7 @@
                 };
 
                 options = import ./options.nix;
-                autocomplete.nvim-cmp = import ./cmp.nix;
+                autocomplete.nvim-cmp = import ./cmp.nix { inherit lib; };
                 formatter = import ./formatter.nix;
                 binds.whichKey = import ./which-key.nix { inherit pkgs; };
                 languages = import ./languages.nix;
@@ -51,7 +47,17 @@
                 theme = import ./theme.nix;
                 keymaps = import ./keymaps.nix;
                 autocmds = import ./autocmds.nix { inherit pkgs; };
-                extraLuaFiles = [ ./lsp.lua ];
+                extraLuaFiles = [ 
+                    ./lua/lsp.lua
+                    ./lua/map.lua
+                    ./lua/autopairs.lua
+                ];
+                snippets = import ./snippets.nix;
+                mini = import ./mini.nix;
+                # notes.todo-comments = import ./todo.nix;
+                utility = import ./extra-plugins/oil.nix;
+                ui.noice = import ./extra-plugins/noice.nix;
+                notify.nvim-notify = import ./extra-plugins/notify.nix;
             };
 
             imports = [

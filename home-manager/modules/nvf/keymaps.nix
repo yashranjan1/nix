@@ -29,5 +29,11 @@
         mode = "n";
         desc = "[F]ormat buffer";
     }
+    {
+        key = "<leader>o";
+        action = ''<cmd>Oil<CR>'';
+        mode = "n";
+        desc = "Opens [O]il.nvim window";
+    }
 ]
 
