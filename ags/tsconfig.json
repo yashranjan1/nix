@@ -9,14 +9,8 @@
         // "checkJs": true,
         // "allowJs": true,
         "jsx": "react-jsx",
-        "jsxImportSource": "/usr/share/astal/gjs/gtk3",
+        "jsxImportSource": "astal/gtk3",
         "paths": {
-            "astal": [
-                "/usr/share/astal/gjs"
-            ],
-            "astal/*": [
-                "/usr/share/astal/gjs/*"
-            ],
             "@/*": [
                 "/home/yash/.config/ags/widget/*"
             ],
