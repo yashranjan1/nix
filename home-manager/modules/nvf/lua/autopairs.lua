@@ -1,16 +1,6 @@
--- autopairs
--- https://github.com/windwp/nvim-autopairs
+local cmp_status, cmp = pcall(require, "cmp")
+local autopairs_status, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
 
-return {
-    'windwp/nvim-autopairs',
-    event = 'InsertEnter',
-    -- Optional dependency
-    dependencies = { 'hrsh7th/nvim-cmp' },
-    config = function()
-        require('nvim-autopairs').setup {}
-        -- If you want to automatically add `(` after selecting a function or method
-        local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
-        local cmp = require 'cmp'
-        cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
-    end,
-}
+if cmp_status and autopairs_status then
+    cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+end

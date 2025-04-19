@@ -55,6 +55,7 @@
                 snippets = import ./snippets.nix;
                 mini = import ./mini.nix;
                 # notes.todo-comments = import ./todo.nix;
+                autopairs = import ./auto-pairs.nix;
                 utility = import ./extra-plugins/oil.nix;
                 ui.noice = import ./extra-plugins/noice.nix;
                 notify.nvim-notify = import ./extra-plugins/notify.nix;
