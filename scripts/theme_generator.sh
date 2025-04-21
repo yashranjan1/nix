@@ -16,7 +16,7 @@ for THEME in "$BASE_DIR"/*; do
         WALLPAPER_FILE=""
         for FILE in "$THEME"/*; do
             if [[ "$FILE" =~ \.(jpg|png|jpeg|gif|bmp)$ ]]; then
-                WALLPAPER_FILE="/home/yash/.config/theme/$THEME_NAME/$(basename "$FILE")"
+                WALLPAPER_FILE="/home/yash/theme/$THEME_NAME/$(basename "$FILE")"
                 break  # Stop after finding the first wallpaper
             fi
         done

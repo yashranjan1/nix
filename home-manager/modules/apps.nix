@@ -15,6 +15,7 @@ in {
 
     # packages
     gh
+    dart-sass
     go
     wl-clipboard
     gopls

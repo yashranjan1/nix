@@ -1,9 +1,9 @@
 
-@import "theme";
+@import "/home/yash/.local/share/ags-editable/theme";
 @import "widget/CalendarCenter/style";
 @import "widget/PowerMenu/style";
 @import "widget/ControlCenter/style";
-@import "widget/Bar/style";
+@import "/home/yash/.local/share/ags-editable/bar_style";
 @import "widget/AppLauncher/style";
 @import "widget/Notification/style";
 @import "widget/NotificationCenter/style";
@@ -13,4 +13,12 @@
 
 window {
     font-family: JetBrainsMono NF
+}
+
+button {
+    background-image: none;
+    border: 0px;
+    color: inherit;
+    box-shadow: none;
+    font-weight: inherit;
 }

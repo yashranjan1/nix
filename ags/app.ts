@@ -16,19 +16,24 @@ exec(["sass", "./style.scss", "/tmp/style.css"]);
 
 // config creation
 
-await readFileAsync(`${SRC}/currentTheme.json`).then((data) => {
+await readFileAsync(
+  `/home/yash/.local/share/ags-editable/currentTheme.json`,
+).then((data) => {
   const parsed: { name: string; split: boolean } = JSON.parse(data);
   theme.set(parsed.name);
   split.set(parsed.split);
 });
 
-await execAsync(["zsh", "-c", "$(realpath ~/.config/scripts/theme_generator.sh)"]).then(async (data) => {
+await execAsync([
+  "zsh",
+  "-c",
+  "$(realpath ~/.config/scripts/theme_generator.sh)",
+]).then(async (data) => {
   const parsed: Array<Config> = JSON.parse(data);
   config.set(parsed);
 
   themeOpts.set(parsed.map((t) => t.name));
 });
-
 
 const menuState = Variable<string>("none");
 

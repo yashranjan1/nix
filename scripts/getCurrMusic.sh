@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env zsh
 
 # Get the currently playing song and artist from MPRIS players (VLC, Rhythmbox, etc.)
 current_song=$(playerctl metadata title 2>/dev/null)

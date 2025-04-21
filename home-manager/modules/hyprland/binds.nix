@@ -8,7 +8,7 @@
       "$mainMod, Q, killactive,"
       "$mainMod, E, exec, $fileManager"
       "$mainMod, V, togglefloating,"
-      "$mainMod SHIFT, S, exec, grim -g '$(slurp -w 0)' - | swappy -f - -o $(xdg-user-dir PICTURES)/Screenshots/$(date +'%s.png')"
+      "$mainMod SHIFT, S, exec, grim -g \"$(slurp -w 0)\" - | swappy -f - -o $(xdg-user-dir PICTURES)/Screenshots/$(date +'%s.png')"
       "$mainMod, SPACE, exec, source $scripts/toggle_window.sh app-launcher"
       "$mainMod, P, pseudo, # dwindle"
       "$mainMod, G, togglesplit, # dwindle"

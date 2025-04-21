@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env zsh
 
 # Check if an argument is passed
 if [ -z "$1" ]; then

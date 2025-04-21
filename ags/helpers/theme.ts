@@ -2,12 +2,15 @@ import { execAsync, writeFileAsync } from "astal";
 import { config, split, theme, themeOpts } from "../variables/theme-variables";
 import { App } from "astal/gtk3";
 
+const EDITS_PATH = "/home/yash/.local/share/ags-editable";
+const SCRIPTS_PATH = "/home/yash/.config/scripts";
+
 const changeWallpaper = async (path: string) => {
   writeFileAsync(
-    `${SRC}/currentTheme.json`,
+    `${EDITS_PATH}/currentTheme.json`,
     JSON.stringify({ name: theme.get(), split: split.get() }),
   );
-  await execAsync(`../scripts/run_swww.sh ${path}`);
+  await execAsync(`${SCRIPTS_PATH}/run_swww.sh ${path}`);
 };
 
 const changeTheme = async (num: number) => {
@@ -26,7 +29,7 @@ const changeTheme = async (num: number) => {
   // write theme.scss
   try {
     await writeFileAsync(
-      `${SRC}/theme.scss`,
+      `${EDITS_PATH}/theme.scss`,
       `$accent: ${colors?.accent};
 $theme_fg_color: ${colors?.theme_fg_color};
 $theme_bg_color: ${colors?.theme_bg_color};

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env zsh
 
 # Run HyprPicker and capture the selected color
 COLOR=$(hyprpicker -a)

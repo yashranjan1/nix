@@ -2,6 +2,7 @@
   imports = [
     ./ags.nix
     ./apps.nix
+    ./gen-def.nix
     ./git.nix
     ./gtk.nix
     ./hyprland/default.nix
