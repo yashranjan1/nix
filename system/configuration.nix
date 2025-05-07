@@ -1,25 +1,26 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   # boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.enable = true;
-  boot.loader.grub.devices = [ "nodev" ];
+  boot.loader.grub.devices = ["nodev"];
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.useOSProber = true;
 
   boot.extraModulePackages = [
-        pkgs.linuxKernel.packages.linux_6_6.v4l2loopback
+    pkgs.linuxKernel.packages.linux_6_6.v4l2loopback
   ];
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -34,6 +35,11 @@
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
+  time.hardwareClockInLocalTime = true;
+
+  fonts.fonts = with pkgs; [
+    source-han-sans-vf-ttf
+  ];
 
   # garbage collection
   nix.gc = {
@@ -59,6 +65,7 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  services.xserver.videoDrivers = ["amdgpu"];
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager = {
@@ -74,6 +81,9 @@
 
   # Hyprland
   programs = {
+    steam = {
+      enable = true;
+    };
     hyprland = {
       enable = true;
       xwayland.enable = true;
@@ -97,6 +107,7 @@
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
+  hardware.opengl.enable = true;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -118,13 +129,12 @@
   users.users.yash = {
     isNormalUser = true;
     description = "yash";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = ["networkmanager" "wheel"];
     packages = with pkgs; [
-    #  thunderbird
+      #  thunderbird
     ];
     shell = pkgs.zsh;
   };
-
 
   nixpkgs.config.allowUnfree = true;
 
@@ -142,7 +152,10 @@
     ghostty
     kitty
     home-manager
-  #  wget
+
+    mesa
+    vulkan-tools
+    #  wget
   ];
 
   environment.sessionVariables = {
@@ -175,5 +188,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "24.11"; # Did you read the comment?
-
 }

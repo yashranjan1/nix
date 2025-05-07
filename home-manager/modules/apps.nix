@@ -15,11 +15,13 @@ in {
 
     # packages
     gh
+    gimp
     dart-sass
     go
     wl-clipboard
     gopls
     jetbrains-mono
+    playerctl
     unstable.nerd-fonts.jetbrains-mono
     bootdev
     pnpm

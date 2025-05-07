@@ -2,6 +2,7 @@
   imports = [
     ./ags.nix
     ./apps.nix
+    ./fonts.nix
     ./gen-def.nix
     ./git.nix
     ./gtk.nix

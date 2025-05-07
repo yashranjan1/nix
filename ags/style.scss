@@ -20,5 +20,7 @@ button {
     border: 0px;
     color: inherit;
     box-shadow: none;
-    font-weight: inherit;
+    font-weight: normal;
+    text-shadow: 0 0 rgba(0,0,0,0);
+    -gtk-icon-shadow: 0 0 rgba(0,0,0,0);
 }

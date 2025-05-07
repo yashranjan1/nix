@@ -61,7 +61,8 @@ export default function NewNetwork({ gdkmonitor, menuState }: WindowCustomProps)
                 <box vertical spacing={10}>
                     <button onClick={async () => {
                         try {
-                            await execAsync(`nmcli device wifi connect ${network.get()} password ${text.get()}`)
+                            const pass = `nmcli device wifi connect "${network.get()}" password "${text.get()}"`
+                            await execAsync(pass)
                             menuState.set("none")
                             text.set("")
                             error.set("")
