@@ -1,11 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -130,9 +126,9 @@
     isNormalUser = true;
     description = "yash";
     extraGroups = ["networkmanager" "wheel"];
-    packages = with pkgs; [
-      #  thunderbird
-    ];
+    # packages = with pkgs; [
+    #  thunderbird
+    # ];
     shell = pkgs.zsh;
   };
 
@@ -160,6 +156,16 @@
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
+  };
+
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql_17;
+    identMap = ''
+      # ArbitraryMapName systemUser DBUser
+         superuser_map      root      postgres
+         superuser_map      yash      postgres
+    '';
   };
 
   # Some programs need SUID wrappers, can be configured further or are
