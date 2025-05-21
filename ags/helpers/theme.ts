@@ -3,10 +3,9 @@ import { config, split, theme, themeOpts } from "../variables/theme-variables";
 import { App } from "astal/gtk3";
 import userPath from "../variables/user";
 
-const EDITS_PATH = `${userPath.get()}/.local/share/ags-editable`;
-const SCRIPTS_PATH = `${userPath.get()}/.config/scripts`;
-
 const changeWallpaper = async (path: string) => {
+  const EDITS_PATH = `${userPath.get()}/.local/share/ags-editable`;
+  const SCRIPTS_PATH = `${userPath.get()}/.config/scripts`;
   writeFileAsync(
     `${EDITS_PATH}/currentTheme.json`,
     JSON.stringify({ name: theme.get(), split: split.get() }),
@@ -26,6 +25,7 @@ const changeTheme = async (num: number) => {
 
   theme.set(themeOpts.get()[newIndex]);
   const colors = config.get().find((t) => t.name === theme.get())?.colors;
+  const EDITS_PATH = `${userPath.get()}/.local/share/ags-editable`;
 
   // write theme.scss
   try {
