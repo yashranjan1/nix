@@ -145,6 +145,7 @@ box.mpris-player {
         trough {
             background-color: color.adjust($theme_fg_color, $alpha: -0.5);
             border-radius: 7px;
+            border: none;
         }
     
         highlight {
@@ -168,7 +169,7 @@ box.mpris-player {
 }
 
 .open-menu-btn {
-    color: $theme_bg_color;
+    color: inherit;
     border-radius: 10px;
     padding: 0 20px;
     min-width: 40px;

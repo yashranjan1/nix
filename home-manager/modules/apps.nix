@@ -17,6 +17,7 @@ in {
     gh
     libnotify
     gimp
+    bluez
     hyprpicker
     dart-sass
     go

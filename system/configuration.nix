@@ -29,6 +29,10 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
+  # bluetooth stuff
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
+
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
   time.hardwareClockInLocalTime = true;
