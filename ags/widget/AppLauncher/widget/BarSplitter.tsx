@@ -6,7 +6,7 @@ import { Gtk } from "astal/gtk3"
 export function BarSplitter(){
     const onclick = () => {
         split.set(!split.get())
-        writeFileAsync(`${SRC}/currentTheme.json`, JSON.stringify({ name: theme.get(), split: split.get() }))
+        writeFileAsync(`~/.local/share/ags-editable/currentTheme.json`, JSON.stringify({ name: theme.get(), split: split.get() }))
         splitBar(split.get())
     }
 

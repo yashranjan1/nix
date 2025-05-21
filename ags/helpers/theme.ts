@@ -1,9 +1,10 @@
 import { execAsync, writeFileAsync } from "astal";
 import { config, split, theme, themeOpts } from "../variables/theme-variables";
 import { App } from "astal/gtk3";
+import userPath from "../variables/user";
 
-const EDITS_PATH = "/home/yash/.local/share/ags-editable";
-const SCRIPTS_PATH = "/home/yash/.config/scripts";
+const EDITS_PATH = `${userPath.get()}/.local/share/ags-editable`;
+const SCRIPTS_PATH = `${userPath.get()}/.config/scripts`;
 
 const changeWallpaper = async (path: string) => {
   writeFileAsync(

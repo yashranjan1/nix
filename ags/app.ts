@@ -11,13 +11,17 @@ import { config, split, theme, themeOpts } from "./variables/theme-variables";
 import VolumeControl from "@/VolumeControl/VolumeControl";
 import WifiMenu from "@/WifiMenu/WifiMenu";
 import NewNetwork from "@/NewNetwork/NewNetwork";
+import setUserPath from "./helpers/user";
+import userPath from "./variables/user";
 
 exec(["sass", "./style.scss", "/tmp/style.css"]);
+
+setUserPath(userPath);
 
 // config creation
 
 await readFileAsync(
-  `/home/yash/.local/share/ags-editable/currentTheme.json`,
+  `${userPath.get()}/.local/share/ags-editable/currentTheme.json`,
 ).then((data) => {
   const parsed: { name: string; split: boolean } = JSON.parse(data);
   theme.set(parsed.name);
