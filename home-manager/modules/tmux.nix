@@ -21,6 +21,8 @@ in {
 
     terminal = "tmux-256color";
 
+    shell = "${pkgs.zsh}/bin/zsh";
+
     plugins = [
       {
         plugin = catppuccinTmux;

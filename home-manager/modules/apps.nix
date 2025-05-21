@@ -15,7 +15,9 @@ in {
 
     # packages
     gh
+    libnotify
     gimp
+    hyprpicker
     dart-sass
     go
     wl-clipboard

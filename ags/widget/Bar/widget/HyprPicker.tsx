@@ -1,9 +1,14 @@
 import { execAsync } from "astal"
 
 export default function HyprPicker(){
+    const SCRIPTS_PATH = "/home/yash/.config/scripts";
     const onClick = async () => {
-        const color = await execAsync('../scripts/color_picker.sh')
-        print(color)
+        try {
+            await execAsync(`${SCRIPTS_PATH}/color_picker.sh`)
+        }
+        catch (err) {
+            console.log(err)
+        }
     }
     
     return  <button 
