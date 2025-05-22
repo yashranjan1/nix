@@ -18,8 +18,6 @@ exec(["sass", "./style.scss", "/tmp/style.css"]);
 
 setUserPath(userPath);
 
-print(userPath.get());
-
 // config creation
 
 await readFileAsync(

@@ -44,7 +44,7 @@ icon.Logo {
 .date-btn {
     background-color: $theme_alt_bg_color;
     color: $theme_fg_color;
-    border-radius: 10px;
+    border-radius: 25px;
     margin: 0px;
     padding: 0px;
 
@@ -56,12 +56,13 @@ icon.Logo {
 }
 
 .control-center-btn {
-    background-color: $theme_bg_color;
+    background-color: $theme_alt_bg_color;
+    // background-color: $theme_bg_color;
     color: $theme_fg_color;
-    border-radius: 10px;
+    border-radius: 25px;
     margin: 0px;
-    padding: 3px 10px;
-    font-size: 18px;
+    padding: 0px 15px;
+    font-size: 16px;
 }
 
 .bar-item-active {

@@ -35,7 +35,7 @@ export default function Bar({ gdkmonitor, menuState }: WindowCustomProps) {
                 <box>
                     <Date monitor={`${gdkmonitor.get_model()}`} state={menuState} />
                 </box>
-                <box hexpand halign={Gtk.Align.END}>
+                <box hexpand halign={Gtk.Align.END} spacing={7}>
                     <KeyBoardLayout />
                     <HyprPicker />
                     <Notifications
