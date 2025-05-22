@@ -4,7 +4,7 @@ export default function KeyBoardLayout() {
     const name = Variable("").poll(1000, 'fcitx5-remote', (out, _) => out)
 
     return <box
-        className={"control-center-btn"}
+        className={"language-indicator"}
     >
         <box className={"kb-layout"}>
             <label label={bind(name).as(state => state === "1" ? 'A' : 'あ')} />
