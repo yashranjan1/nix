@@ -25,6 +25,7 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
+    macos = "aarch64-darwin";
 
     pkgs = nixpkgs.legacyPackages.x86_64-linux;
     lib = pkgs.lib;
@@ -44,6 +45,7 @@
     };
   in {
     packages.${system}.vim = customNeovim.neovim;
+    packages.${macos}.vim = customNeovim.neovim;
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [./system/configuration.nix];
