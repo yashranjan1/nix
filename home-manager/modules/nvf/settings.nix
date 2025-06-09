@@ -8,7 +8,6 @@
   vimAlias = true;
   viAlias = true;
   
-  scrollOffset = 20;
   clipboard = {
     enable = true;
     providers.wl-copy.enable = true;

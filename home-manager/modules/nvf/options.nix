@@ -1,5 +1,6 @@
 {
   options = {
+    scrolloff = 20;
     showmode = false;
     ignorecase = true;
     mouse = "a";
