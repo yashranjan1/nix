@@ -1,0 +1,22 @@
+{ pkgs, lib }:
+lib.mkMerge [
+  (import ./auto-pairs.nix)
+  (import ./autocmds.nix { inherit pkgs; })
+  (import ./cmp.nix { inherit lib; })
+  (import ./formatter.nix)
+  (import ./git.nix)
+  (import ./keymaps.nix)
+  (import ./languages.nix)
+  (import ./lsp.nix { inherit pkgs; })
+  (import ./mini.nix)
+  (import ./options.nix)
+  (import ./settings.nix { inherit pkgs lib; })
+  (import ./snippets.nix)
+  (import ./telescope.nix { inherit pkgs; })
+  (import ./theme.nix)
+  (import ./todo.nix)
+  (import ./which-key.nix { inherit pkgs; })
+  (import ./extra-plugins/noice.nix)
+  (import ./extra-plugins/notify.nix)
+  (import ./extra-plugins/oil.nix)
+]

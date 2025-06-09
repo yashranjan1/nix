@@ -16,7 +16,7 @@
   boot.loader.grub.useOSProber = true;
 
   boot.extraModulePackages = [
-    pkgs.linuxKernel.packages.linux_6_6.v4l2loopback
+    pkgs.linuxKernel.packages.linux_6_12.v4l2loopback
   ];
 
   networking.hostName = "nixos"; # Define your hostname.

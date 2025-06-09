@@ -1,5 +1,7 @@
 {
+  utility = {
     oil-nvim = {
-        enable = true;
+      enable = true;
     };
+  };
 }

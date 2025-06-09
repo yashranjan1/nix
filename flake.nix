@@ -2,10 +2,10 @@
   description = "My system config";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nvf = {
@@ -26,11 +26,24 @@
   } @ inputs: let
     system = "x86_64-linux";
 
+    pkgs = nixpkgs.legacyPackages.x86_64-linux;
+    lib = pkgs.lib;
+
     unstable = import nixpkgs-unstable {
       inherit system;
       config.allowUnfree = true;
     };
+
+    vimConfig = {
+      config.vim = import ./home-manager/modules/nvf/bundle.nix { inherit pkgs lib; };
+    };
+
+    customNeovim = nvf.lib.neovimConfiguration {
+      inherit pkgs;
+      modules = [vimConfig];
+    };
   in {
+    packages.${system}.vim = customNeovim.neovim;
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [./system/configuration.nix];
@@ -46,7 +59,7 @@
       };
 
       modules = [
-        nvf.homeManagerModules.default
+        {home.packages = [customNeovim.neovim];}
         ./home-manager/home.nix
       ];
     };

@@ -1,6 +1,5 @@
 {
+  notes.todo-comments = {
     enable = true;
-    opts = {
-      signs = false;
-    };
+  };
 }

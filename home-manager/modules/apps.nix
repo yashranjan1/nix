@@ -27,8 +27,6 @@ in {
     playerctl
     unstable.nerd-fonts.jetbrains-mono
     bootdev
-    pnpm
-    nodejs_23
     fcitx5
     pywal
     grim

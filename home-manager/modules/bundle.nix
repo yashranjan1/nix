@@ -9,7 +9,6 @@
     ./git.nix
     ./gtk.nix
     ./hyprland/default.nix
-    ./nvf/nvf.nix
     ./scripts.nix
     ./tmux.nix
     ./wal.nix
