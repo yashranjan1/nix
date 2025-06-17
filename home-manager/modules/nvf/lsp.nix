@@ -1,32 +1,16 @@
-{pkgs}: {
+{ pkgs }: {
   lsp = {
-    lspconfig = {
-      enable = true;
-      sources = {
-        vue_ls = ''
-          vim.lsp.config('vue_ls', {})
-          vim.lsp.enable('vue_ls')
-        '';
-        ts_ls = ''
-          vim.lsp.config('ts_ls', {
-            init_options = {
-              plugins = {
-                {
-                  name = "@vue/typescript-plugin",
-                  location = "${pkgs.vue-language-server}/lib/node_modules/@vue/language-server",
-                  languages = {"vue"},
-                },
-              },
-            },
-            filetypes = {
-              "javascript",
-              "typescript",
-              "vue",
-            },
-          })
-          vim.lsp.enable('ts_ls')
-        '';
-      };
+    null-ls.enable = true;
+    formatOnSave = true;
+    servers = {
+      vue_ls = { };
+      vtsls = { };
+      basedpyright = { };
+      nixd = { };
+      gopls = { };
+      tailwindcss = { };
+      marksman = { };
+      html = { };
     };
     lspSignature.enable = true;
     mappings = {

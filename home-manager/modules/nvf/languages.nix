@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   languages = {
     lua = {
       enable = true;
@@ -6,30 +6,29 @@
     };
     nix = {
       enable = true;
-      lsp.enable = true;
       format.enable = true;
     };
     ts = {
-      enable = true;
-      lsp.enable = true;
-      format.enable = true;
+      format = {
+        enable = true;
+        package = pkgs.prettierd;
+      };
     };
     go = {
       enable = true;
-      lsp.enable = true;
       format.enable = true;
     };
-    python.enable = true;
+    python = {
+      enable = true;
+      lsp.enable = true;
+    };
     sql = {
       enable = true;
-      treesitter.enable = true;
       format.enable = true;
-      lsp.enable = true;
     };
     markdown = {
       enable = true;
       format.enable = true;
-      lsp.enable = true;
     };
     html = {
       enable = true;
@@ -38,10 +37,7 @@
         autotagHtml = true;
       };
     };
-    tailwind = {
-      enable = true;
-      lsp.enable = true;
-    };
+    tailwind = { enable = true; };
     enableTreesitter = true;
   };
 }

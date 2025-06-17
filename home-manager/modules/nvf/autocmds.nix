@@ -1,16 +1,11 @@
-{ pkgs } : {
-  autocmds = [
-    {
-      desc = "Highlight when yanking";
-      event = [
-        "TextYankPost"
-      ];
-      # group = "KickstackHighlightYank";
-      callback =  pkgs.lib.generators.mkLuaInline ''
-        function()
-        vim.highlight.on_yank()
-        end
-      '';
-    }
-  ];
+{ pkgs }: {
+  autocmds = [{
+    desc = "Highlight when yanking";
+    event = [ "TextYankPost" ];
+    callback = pkgs.lib.generators.mkLuaInline ''
+      function()
+      vim.highlight.on_yank()
+      end
+    '';
+  }];
 }

@@ -1,16 +1,11 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
-  programs.zsh = {
+{ config, pkgs, ... }: {
+programs.zsh = {
     enable = true;
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
-    shellAliases = let
-      flakeDir = "~/nix";
+    shellAliases = let flakeDir = "~/nix";
     in {
       rebuild = "sudo nixos-rebuild switch --flake ${flakeDir}";
       hms = "home-manager switch --flake ${flakeDir}";
@@ -21,19 +16,13 @@
     history.size = 10000;
     history.path = "${config.xdg.dataHome}/zsh/history";
 
-    plugins = [
-      {
-        name = "powerlevel10k";
-        src = pkgs.zsh-powerlevel10k;
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
-    ];
-    initContent = "
-      source ~/.p10k.zsh
-    ";
+    plugins = [{
+      name = "powerlevel10k";
+      src = pkgs.zsh-powerlevel10k;
+      file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+    }];
+    initContent = "\n      source ~/.p10k.zsh\n    ";
 
-    oh-my-zsh = {
-      enable = true;
-    };
+    oh-my-zsh = { enable = true; };
   };
 }
