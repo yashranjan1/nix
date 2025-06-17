@@ -1,7 +1,7 @@
 {
   theme = {
     enable = true;
-    style = "mocha";
-    name = "catppuccin";
+    style = "night";
+    name = "tokyonight";
   };
 }
