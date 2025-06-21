@@ -131,6 +131,24 @@
       desc = "[S]earch [N]eovim files";
     }
     {
+      key = "gd";
+      mode = "n";
+      action = "<cmd>lua require('telescope.builtin').lsp_definitions<CR>";
+      desc = "[G]o to [D]efinitions";
+    }
+    {
+      key = "gr";
+      mode = "n";
+      action = "<cmd>lua require('telescope.builtin').lsp_references<CR>";
+      desc = "[G]o to [R]eferences";
+    }
+    {
+      key = "<leader>bd";
+      mode = "n";
+      action = "<cmd>bdelete<CR>";
+      desc = "[B]uffer [D]elete";
+    }
+    {
       key = "<leader>eo";
       mode = "n";
       action = "<cmd>lua vim.diagnostic.open_float()<CR>";
@@ -147,6 +165,12 @@
       mode = "n";
       action = "<cmd>lua vim.diagnostic.goto_prev()<CR>";
       desc = "[P]revious diagnostic message";
+    }
+    {
+      key = "<leader>ca";
+      mode = "n";
+      action = "<cmd>lua vim.lsp.buf.code_action()<CR>";
+      desc = "[C]ode [A]ctions";
     }
   ];
 }

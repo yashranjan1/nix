@@ -1,7 +1,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{pkgs, ...}: {
+{ pkgs, ... }: {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -11,13 +11,12 @@
   # boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.grub.enable = true;
-  boot.loader.grub.devices = ["nodev"];
+  boot.loader.grub.devices = [ "nodev" ];
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.useOSProber = true;
 
-  boot.extraModulePackages = [
-    pkgs.linuxKernel.packages.linux_6_12.v4l2loopback
-  ];
+  boot.extraModulePackages =
+    [ pkgs.linuxKernel.packages.linux_6_12.v4l2loopback ];
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -37,9 +36,7 @@
   time.timeZone = "Asia/Kolkata";
   time.hardwareClockInLocalTime = true;
 
-  fonts.fonts = with pkgs; [
-    source-han-sans-vf-ttf
-  ];
+  fonts.packages = with pkgs; [ source-han-sans-vf-ttf ];
 
   # garbage collection
   nix.gc = {
@@ -65,7 +62,7 @@
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
-  services.xserver.videoDrivers = ["amdgpu"];
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager = {
@@ -77,23 +74,17 @@
   #services.xserver.desktopManager.gnome.enable = true;
 
   # Enable flakes
-  nix.settings.experimental-features = ["nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Hyprland
   programs = {
-    steam = {
-      enable = true;
-    };
+    steam = { enable = true; };
     hyprland = {
       enable = true;
       xwayland.enable = true;
     };
-    firefox = {
-      enable = true;
-    };
-    zsh = {
-      enable = true;
-    };
+    firefox = { enable = true; };
+    zsh = { enable = true; };
   };
 
   # Configure keymap in X11
@@ -106,8 +97,7 @@
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  hardware.pulseaudio.enable = false;
-  hardware.opengl.enable = true;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -129,7 +119,7 @@
   users.users.yash = {
     isNormalUser = true;
     description = "yash";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = [ "networkmanager" "wheel" "video" ];
     # packages = with pkgs; [
     #  thunderbird
     # ];
@@ -152,15 +142,17 @@
     ghostty
     kitty
     home-manager
-
     mesa
     vulkan-tools
     #  wget
   ];
 
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
+  hardware.graphics = {
+    enable = true;
+    enable32Bit = true;
   };
+
+  environment.sessionVariables = { NIXOS_OZONE_WL = "1"; };
 
   services.postgresql = {
     enable = true;

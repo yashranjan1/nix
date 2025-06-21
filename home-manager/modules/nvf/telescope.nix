@@ -1,5 +1,14 @@
 { pkgs, ... }: {
   telescope = {
+    setupOpts.defaults.layout_config.horizontal.prompt_position = "bottom";
+    extensions = [{
+      name = "ui-select";
+      packages = [ pkgs.vimPlugins.telescope-ui-select-nvim ];
+      setup = {
+        ui-select =
+          pkgs.lib.mkLuaInline "	require('telescope.themes').get_dropdown(),\n";
+      };
+    }];
     enable = true;
     mappings = {
       buffers = null;

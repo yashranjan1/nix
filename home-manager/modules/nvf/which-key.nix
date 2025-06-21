@@ -1,8 +1,9 @@
-{ pkgs } : {
+{ pkgs }: {
   binds.whichKey = {
     enable = true;
     register = pkgs.lib.mkForce {
       "<leader>c" = "[C]ode";
+      "<leader>b" = "[B]uffer";
       "<leader>d" = "[D]ocument";
       "<leader>r" = "[R]ename";
       "<leader>s" = "[S]earch";

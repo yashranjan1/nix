@@ -2,10 +2,8 @@
   wayland.windowManager.hyprland = {
     enable = true;
     settings = {
-      monitor = [
-        "DP-2,2560x1440@165,0x0,1.25"
-        "DP-1,1920x1080@239.76,2048x36,1"
-      ];
+      monitor =
+        [ "DP-2,2560x1440@165,0x0,1.25" "DP-1,1920x1080@239.76,2048x36,1" ];
 
       "$terminal" = "ghostty";
       "$fileManager" = "nautilus";
@@ -21,6 +19,7 @@
 
       env = [
         "XCURSOR_SIZE,24"
+        "HYPRCURSOR_THEME,Bibata-Modern-Classic"
         "HYPRCURSOR_SIZE,24"
       ];
 
@@ -66,10 +65,8 @@
         };
       };
 
-      layerrule = [
-        "blur, gtk-layer-shell"
-        "ignorealpha 0.6, gtk-layer-shell"
-      ];
+      layerrule =
+        [ "blur, gtk-layer-shell" "ignorealpha 0.6, gtk-layer-shell" ];
 
       animations = {
         enabled = true;
@@ -91,9 +88,7 @@
         preserve_split = true;
       };
 
-      master = {
-        new_status = "master";
-      };
+      master = { new_status = "master"; };
 
       misc = {
         force_default_wallpaper = -1;
@@ -108,14 +103,10 @@
 
         sensitivity = 0;
 
-        touchpad = {
-          natural_scroll = false;
-        };
+        touchpad = { natural_scroll = false; };
       };
 
-      gestures = {
-        workspace_swipe = false;
-      };
+      gestures = { workspace_swipe = false; };
 
       device = {
         name = "epic-mouse-v1";
@@ -124,10 +115,8 @@
 
       # source = binds.conf
 
-      windowrulev2 = [
-        "suppressevent maximize, class:.*"
-        "center(0), initialClass:Code"
-      ];
+      windowrulev2 =
+        [ "suppressevent maximize, class:.*" "center(0), initialClass:Code" ];
     };
   };
 }

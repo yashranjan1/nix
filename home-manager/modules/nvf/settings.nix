@@ -45,6 +45,7 @@
     black
     basedpyright
   ];
+
   # FIX: Remove after this is fixed: https://github.com/NotAShelf/nvf/issues/920#issuecomment-2974522465
   luaConfigRC.sqlconfig = # lua
     ''
