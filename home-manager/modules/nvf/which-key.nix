@@ -3,14 +3,12 @@
     enable = true;
     register = pkgs.lib.mkForce {
       "<leader>c" = "[C]ode";
+      "<leader>n" = "[N]ew";
       "<leader>b" = "[B]uffer";
-      "<leader>d" = "[D]ocument";
-      "<leader>r" = "[R]ename";
       "<leader>s" = "[S]earch";
-      "<leader>w" = "[W]orkspace";
-      "<leader>t" = "[T]oggle";
+      "<leader>t" = "[T]ab";
       "<leader>e" = "[E]rror Diagnostics";
-      "<leader>h" = "Git [H]unk";
+      "<leader>r" = "Te[R]minal";
     };
   };
 }

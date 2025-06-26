@@ -8,17 +8,16 @@ in {
     obs-studio
     nautilus
     discord
+    gimp3
 
     # packages
     gh
     libnotify
     devenv
-    gimp
     awscli2
     bluez
     hyprpicker
     dart-sass
-    go
     wl-clipboard
     sqlfluff
     gopls

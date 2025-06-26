@@ -39,13 +39,13 @@
     {
       key = "<leader>y";
       action = ''"+y'';
-      mode = "n";
+      mode = [ "n" "v" ];
       desc = "[Y]ank to system clipboard";
     }
     {
       key = "<leader>p";
       action = ''"+p'';
-      mode = "n";
+      mode = [ "n" "v" ];
       desc = "[P]aste from system clipboard";
     }
     # Telescope binds
@@ -64,7 +64,8 @@
     {
       key = "<leader>sf";
       mode = "n";
-      action = "<cmd>lua require('telescope.builtin').find_files()<CR>";
+      action =
+        "<cmd>lua require('telescope.builtin').find_files({ hidden = true })<CR>";
       desc = "[S]earch [F]iles";
     }
     {
@@ -171,6 +172,73 @@
       mode = "n";
       action = "<cmd>lua vim.lsp.buf.code_action()<CR>";
       desc = "[C]ode [A]ctions";
+    }
+    {
+      key = "<leader>st";
+      mode = "n";
+      action = "<cmd>TodoTelescope<CR>";
+      desc = "[S]earch [T]odo comments";
+    }
+    # Tabs 
+    {
+      key = "<leader>tn";
+      mode = "n";
+      action = "<cmd>tabnew<CR>";
+      desc = "[T]ab [N]ew";
+    }
+    {
+      key = "<leader>tc";
+      mode = "n";
+      action = "<cmd>tabclose<CR>";
+      desc = "[T]ab [C]lose";
+    }
+    {
+      key = "<S-l>";
+      mode = "n";
+      action = "<cmd>tabnext<CR>";
+      desc = "Next Tab";
+    }
+    {
+      key = "<S-h>";
+      mode = "n";
+      action = "<cmd>tabprevious<CR>";
+      desc = "Previous Tab";
+    }
+    {
+      key = "<C-j>";
+      mode = "n";
+      action = "<cmd>wincmd j<CR>";
+      desc = "Go to the split below";
+    }
+    {
+      key = "<C-k>";
+      mode = "n";
+      action = "<cmd>wincmd k<CR>";
+      desc = "Go to the split above";
+    }
+    {
+      key = "<C-l>";
+      mode = "n";
+      action = "<cmd>wincmd l<CR>";
+      desc = "Go to the split to the right";
+    }
+    {
+      key = "<C-h>";
+      mode = "n";
+      action = "<cmd>wincmd h<CR>";
+      desc = "Go to the split to the left";
+    }
+    {
+      key = "<leader>nv";
+      mode = "n";
+      action = "<cmd>vsplit<CR>";
+      desc = "[N]ew [V]ertical Split";
+    }
+    {
+      key = "<leader>nh";
+      mode = "n";
+      action = "<cmd>hsplit<CR>";
+      desc = "[N]ew [H]orizontal Split";
     }
   ];
 }

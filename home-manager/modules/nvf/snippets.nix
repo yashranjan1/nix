@@ -2,14 +2,19 @@
   snippets = {
     luasnip = {
       enable = true;
-      
-      setupOpts = {
-        enable_autosnippets = true;
-      };
-    
-      providers = [
-        "friendly-snippets"
-      ];
+
+      providers = [ "friendly-snippets" "mini-snippets" ];
+      # customSnippets.snipmate = {
+      #   go = [{
+      #     trigger = "ienn";
+      #     description = "If err isnt nil";
+      #     body = ''
+      #       if $1 != nil {
+      #           $2
+      #       }
+      #     '';
+      #   }];
+      # };
     };
   };
 }

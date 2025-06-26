@@ -28,6 +28,7 @@
     };
     markdown = {
       enable = true;
+      extensions.markview-nvim.enable = true;
       format.enable = true;
     };
     html = {

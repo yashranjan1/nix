@@ -44,16 +44,45 @@
     isort
     black
     basedpyright
+    vimPlugins.friendly-snippets
+    ripgrep
   ];
 
-  # FIX: Remove after this is fixed: https://github.com/NotAShelf/nvf/issues/920#issuecomment-2974522465
   luaConfigRC.sqlconfig = # lua
     ''
-      require("lspconfig").sqls.setup({
-        on_attach = function(client, bufnr)
-          require('sqls').on_attach(client, bufnr) 
-        end,
-        cmd = { "${pkgs.sqls}/bin/sqls", "-config", string.format("%s/config.yml", vim.fn.getcwd()) }
-      })
+        -- FIX: Remove after this is fixed: https://github.com/NotAShelf/nvf/issues/920#issuecomment-2974522465
+           require("lspconfig").sqls.setup({
+             on_attach = function(client, bufnr)
+               require('sqls').on_attach(client, bufnr) 
+             end,
+             cmd = { "${pkgs.sqls}/bin/sqls", "-config", string.format("%s/config.yml", vim.fn.getcwd()) }
+           })
+
+        -- attaching local language server
+           local client = vim.lsp.start_client {
+               cmd = {"/home/yash/github.com/yashranjan1/ejs-language-tools/build/ejs-language-server"},
+               name = "ejs-language-tools",
+               on_attach = default_on_attach,
+           }
+           if not client then
+               vim.notify("Client didnt load")
+               return
+           end
+           vim.api.nvim_create_autocmd("FileType", {
+               pattern = "ejs",
+               callback = function()
+                   vim.lsp.buf_attach_client(0, client)
+               end,
+           })
+
+        -- terminal stuff
+        vim.keymap.set("n", "<leader>ro", function()
+            vim.cmd.vnew()
+            vim.cmd.term()
+            vim.cmd.wincmd("J")
+            vim.api.nvim_win_set_height(0, 10)
+        end, { desc = "Te[R]minal [O]pen" })
+
+      require("luasnip.loaders.from_vscode").lazy_load()
     '';
 }

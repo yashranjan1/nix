@@ -1,6 +1,21 @@
 { pkgs, ... }: {
   telescope = {
-    setupOpts.defaults.layout_config.horizontal.prompt_position = "bottom";
+    setupOpts = {
+      defaults = {
+        layout_config = {
+          horizontal = {
+            prompt_position = "bottom";
+            preview_width = 0.4;
+          };
+        };
+        sorting_strategy = "descending";
+      };
+      pickers = {
+        find_files = {
+          find_command = [ "rg" "--files" "--hidden" "--glob" "!**/.git/*" ];
+        };
+      };
+    };
     extensions = [{
       name = "ui-select";
       packages = [ pkgs.vimPlugins.telescope-ui-select-nvim ];
