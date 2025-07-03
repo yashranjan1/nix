@@ -11,7 +11,7 @@ lib.mkMerge [
   (import ./formatter.nix { inherit pkgs; })
   (import ./mini.nix)
   (import ./options.nix)
-  (import ./settings.nix { inherit pkgs lib; })
+  (import ./settings.nix { inherit pkgs; })
   (import ./snippets.nix)
   (import ./telescope.nix { inherit pkgs; })
   (import ./theme.nix)

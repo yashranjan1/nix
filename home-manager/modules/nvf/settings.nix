@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }: {
+{ pkgs, ... }: {
   # alias stuff
   vimAlias = true;
   viAlias = true;
@@ -81,12 +81,17 @@
            })
 
         -- terminal stuff
-        vim.keymap.set("n", "<leader>ro", function()
+        vim.keymap.set("n", "<leader>nht", function()
             vim.cmd.vnew()
             vim.cmd.term()
             vim.cmd.wincmd("J")
-            vim.api.nvim_win_set_height(0, 10)
-        end, { desc = "Te[R]minal [O]pen" })
+            vim.api.nvim_win_set_height(0, math.floor((vim.o.lines) / 2))
+        end, { desc = "[N]ew [H]orizontal [T]erminal" })
+
+        vim.keymap.set("n", "<leader>nvt", function()
+            vim.cmd.vnew()
+            vim.cmd.term()
+        end, { desc = "[N]ew [V]ertical [T]erminal" })
 
       require("luasnip.loaders.from_vscode").lazy_load()
     '';

@@ -1,36 +1,6 @@
 {
   keymaps = [
     {
-      key = "<left>";
-      mode = "n";
-      action = "<cmd><CR>";
-      silent = true;
-    }
-    {
-      key = "<right>";
-      mode = "n";
-      action = "<cmd><CR>";
-      silent = true;
-    }
-    {
-      key = "<up>";
-      mode = "n";
-      action = "<cmd><CR>";
-      silent = true;
-    }
-    {
-      key = "<down>";
-      mode = "n";
-      action = "<cmd><CR>";
-      silent = true;
-    }
-    {
-      key = "<C-a>";
-      action = "<Esc>";
-      mode = "i";
-      silent = true;
-    }
-    {
       key = "<leader>o";
       action = "<cmd>Oil<CR>";
       mode = "n";
@@ -144,30 +114,6 @@
       desc = "[G]o to [R]eferences";
     }
     {
-      key = "<leader>bd";
-      mode = "n";
-      action = "<cmd>bdelete<CR>";
-      desc = "[B]uffer [D]elete";
-    }
-    {
-      key = "<leader>eo";
-      mode = "n";
-      action = "<cmd>lua vim.diagnostic.open_float()<CR>";
-      desc = "[O]pen diagnostic window";
-    }
-    {
-      key = "<leader>en";
-      mode = "n";
-      action = "<cmd>lua vim.diagnostic.goto_next()<CR>";
-      desc = "[N]ext diagnostic message";
-    }
-    {
-      key = "<leader>ep";
-      mode = "n";
-      action = "<cmd>lua vim.diagnostic.goto_prev()<CR>";
-      desc = "[P]revious diagnostic message";
-    }
-    {
       key = "<leader>ca";
       mode = "n";
       action = "<cmd>lua vim.lsp.buf.code_action()<CR>";
@@ -179,18 +125,12 @@
       action = "<cmd>TodoTelescope<CR>";
       desc = "[S]earch [T]odo comments";
     }
-    # Tabs 
+    # Navigation
     {
-      key = "<leader>tn";
+      key = "<leader>bd";
       mode = "n";
-      action = "<cmd>tabnew<CR>";
-      desc = "[T]ab [N]ew";
-    }
-    {
-      key = "<leader>tc";
-      mode = "n";
-      action = "<cmd>tabclose<CR>";
-      desc = "[T]ab [C]lose";
+      action = "<cmd>bdelete<CR>";
+      desc = "[B]uffer [D]elete";
     }
     {
       key = "<S-l>";
@@ -229,22 +169,67 @@
       desc = "Go to the split to the left";
     }
     {
-      key = "<leader>nv";
+      key = "<leader>nvw";
       mode = "n";
       action = "<cmd>vsplit<CR>";
-      desc = "[N]ew [V]ertical Split";
+      desc = "[N]ew [V]ertical [W]indow";
     }
     {
-      key = "<leader>nh";
+      key = "<leader>nhw";
       mode = "n";
-      action = "<cmd>hsplit<CR>";
-      desc = "[N]ew [H]orizontal Split";
+      action = "<cmd>horizontal split<CR>";
+      desc = "[N]ew [H]orizontal [W]indow";
     }
     {
-      key = "<leader>et";
+      key = "<leader>ntr";
       mode = "n";
-      action = "<cmd> lua require('tiny-inline-diagnostic').toggle()<CR>";
-      desc = "Inline [E]rror [T]oggle visibility";
+      action = "<cmd>tabnew<CR>";
+      desc = "[N]ew [T]ab [R]ight";
+    }
+    {
+      key = "<leader>ntl";
+      mode = "n";
+      action = "<cmd>-tabnew<CR>";
+      desc = "[N]ew [T]ab [L]eft";
+    }
+    {
+      key = "<Up>";
+      mode = "n";
+      action = "<cmd>resize +2<CR>";
+    }
+    {
+      key = "<Down>";
+      mode = "n";
+      action = "<cmd>resize -2<CR>";
+    }
+    {
+      key = "<Left>";
+      mode = "n";
+      action = "<cmd>vertical resize +5<CR>";
+    }
+    {
+      key = "<Right>";
+      mode = "n";
+      action = "<cmd>vertical resize -5<CR>";
+    }
+    # errors
+    {
+      key = "<leader>eo";
+      mode = "n";
+      action = "<cmd>lua vim.diagnostic.open_float()<CR>";
+      desc = "[O]pen diagnostic window";
+    }
+    {
+      key = "<leader>en";
+      mode = "n";
+      action = "<cmd>lua vim.diagnostic.goto_next()<CR>";
+      desc = "[N]ext diagnostic message";
+    }
+    {
+      key = "<leader>ep";
+      mode = "n";
+      action = "<cmd>lua vim.diagnostic.goto_prev()<CR>";
+      desc = "[P]revious diagnostic message";
     }
   ];
 }
