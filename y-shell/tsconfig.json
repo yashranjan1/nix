@@ -1,0 +1,33 @@
+{
+    "$schema": "https://json.schemastore.org/tsconfig",
+    "compilerOptions": {
+        "strict": true,
+        "target": "ES2020",
+        "module": "ES2022",
+        "lib": ["ES2023"],
+        "moduleResolution": "Bundler",
+        "jsx": "react-jsx",
+        "jsxImportSource": "ags/gtk3",
+        "paths": {
+            "@/*": [
+                "/home/yash/.config/ags/widget/*"
+            ],
+            "@Bar/*": [
+                "/home/yash/.config/ags/widget/Bar/*",
+                "/home/yash/.config/ags/widget/Bar/widget/*"
+            ],
+            "@Calendar/*": [
+                "/home/yash/.config/ags/widget/CalendarCenter/*",
+                "/home/yash/.config/ags/widget/CalendarCenter/widget/*"
+            ],
+            "@Power/*": [
+                "/home/yash/.config/ags/widget/PowerMenu/*",
+                "/home/yash/.config/ags/widget/PowerMenu/widget/*"
+            ],
+            "@CC/*": [
+                "/home/yash/.config/ags/widget/ControlCenter/*",
+                "/home/yash/.config/ags/widget/ControlCenter/widget/*"
+            ]
+        }
+    }
+}

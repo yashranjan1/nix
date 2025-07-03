@@ -4,6 +4,11 @@
   viAlias = true;
   lsp.enable = true;
 
+  statusline.lualine = {
+    enable = true;
+    theme = "tokyonight";
+  };
+
   clipboard = {
     enable = true;
     providers.wl-copy.enable = true;

@@ -134,13 +134,13 @@
     {
       key = "gd";
       mode = "n";
-      action = "<cmd>lua require('telescope.builtin').lsp_definitions<CR>";
+      action = "<cmd>Telescope lsp_definitions<CR>";
       desc = "[G]o to [D]efinitions";
     }
     {
       key = "gr";
       mode = "n";
-      action = "<cmd>lua require('telescope.builtin').lsp_references<CR>";
+      action = "<cmd>Telescope lsp_references<CR>";
       desc = "[G]o to [R]eferences";
     }
     {
@@ -239,6 +239,12 @@
       mode = "n";
       action = "<cmd>hsplit<CR>";
       desc = "[N]ew [H]orizontal Split";
+    }
+    {
+      key = "<leader>et";
+      mode = "n";
+      action = "<cmd> lua require('tiny-inline-diagnostic').toggle()<CR>";
+      desc = "Inline [E]rror [T]oggle visibility";
     }
   ];
 }

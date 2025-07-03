@@ -13,7 +13,8 @@ in {
     # packages
     gh
     libnotify
-    devenv
+    # WARN: Remove this after devenv is stable on the stable branch
+    unstable.devenv
     awscli2
     bluez
     hyprpicker
@@ -32,5 +33,6 @@ in {
     slurp
     lsd
     fastfetch
+    pnpm
   ];
 }

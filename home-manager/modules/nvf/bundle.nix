@@ -4,6 +4,7 @@ lib.mkMerge [
   (import ./autocmds.nix { inherit pkgs; })
   (import ./cmp.nix { inherit lib; })
   (import ./git.nix)
+  (import ./custom-plugins.nix { inherit pkgs; })
   (import ./keymaps.nix)
   (import ./lsp.nix { inherit pkgs; })
   (import ./languages.nix { inherit pkgs; })
@@ -16,7 +17,7 @@ lib.mkMerge [
   (import ./theme.nix)
   (import ./todo.nix)
   (import ./which-key.nix { inherit pkgs; })
-  (import ./extra-plugins/noice.nix)
-  (import ./extra-plugins/notify.nix)
-  (import ./extra-plugins/oil.nix)
+  (import ./noice.nix)
+  (import ./notify.nix)
+  (import ./oil.nix)
 ]
