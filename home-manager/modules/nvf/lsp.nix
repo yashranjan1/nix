@@ -7,6 +7,7 @@
       vtsls = { };
       basedpyright = { };
       nixd = { };
+      phpactor = { };
       gopls = { };
       tailwindcss = { };
       marksman = { };
