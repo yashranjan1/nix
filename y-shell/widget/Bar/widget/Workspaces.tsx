@@ -22,15 +22,17 @@ function Workspaces() {
     const styles = "workspace-tab"
 
     return <box class="Workspaces">
-        <For each={workspaces}>
-            {ws => (
-                <button
-                    class={createBinding(hypr, "focusedWorkspace").as(fw =>
-                        ws === fw ? `focused ${styles}` : styles)}
-                    onClicked={() => ws.focus()}>
-                </button>
-            )}
-        </For>
+        <box>
+            <For each={workspaces}>
+                {ws => (
+                    <button
+                        class={createBinding(hypr, "focusedWorkspace").as(fw =>
+                            ws === fw ? `focused ${styles}` : styles)}
+                        onClicked={() => ws.focus()}>
+                    </button>
+                )}
+            </For>
+        </box>
         <FocusedClient />
     </box>
 }

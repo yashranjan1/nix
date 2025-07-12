@@ -8,6 +8,7 @@
       basedpyright = { };
       nixd = { };
       phpactor = { };
+      shopify_theme_ls = { };
       gopls = { };
       tailwindcss = { };
       marksman = { };

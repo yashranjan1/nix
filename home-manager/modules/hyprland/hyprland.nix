@@ -12,9 +12,9 @@
       exec-once = [
         "swww-daemon"
         "fcitx5 -d"
-        "ags run"
         "hypridle"
         "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        "ags run --log-file /home/yash/logs/ags-log.txt"
       ];
 
       env = [
@@ -101,7 +101,7 @@
 
         follow_mouse = 1;
 
-        sensitivity = 0;
+        sensitivity = -0.8;
 
         touchpad = { natural_scroll = false; };
       };
@@ -110,7 +110,7 @@
 
       device = {
         name = "epic-mouse-v1";
-        sensitivity = -0.5;
+        sensitivity = -2.5;
       };
 
       # source = binds.conf

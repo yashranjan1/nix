@@ -47,6 +47,8 @@
     nixd
     tailwindcss-language-server
     isort
+    phpactor
+    shopify-cli
     black
     basedpyright
     vimPlugins.friendly-snippets

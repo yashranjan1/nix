@@ -25,6 +25,7 @@ in {
     jetbrains-mono
     playerctl
     unstable.nerd-fonts.jetbrains-mono
+    nodejs_24
     bootdev
     pywal
     grim
