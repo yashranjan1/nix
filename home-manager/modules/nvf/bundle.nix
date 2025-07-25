@@ -4,6 +4,7 @@ lib.mkMerge [
   (import ./autocmds.nix { inherit pkgs; })
   (import ./cmp.nix { inherit lib; })
   (import ./git.nix)
+  (import ./harpoon.nix)
   (import ./custom-plugins.nix { inherit pkgs; })
   (import ./keymaps.nix)
   (import ./lsp.nix { inherit pkgs; })

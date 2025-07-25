@@ -16,14 +16,17 @@
         };
       };
     };
-    extensions = [{
-      name = "ui-select";
-      packages = [ pkgs.vimPlugins.telescope-ui-select-nvim ];
-      setup = {
-        ui-select =
-          pkgs.lib.mkLuaInline "	require('telescope.themes').get_dropdown(),\n";
-      };
-    }];
+    extensions = [
+      {
+        name = "ui-select";
+        packages = [ pkgs.vimPlugins.telescope-ui-select-nvim ];
+        setup = {
+          ui-select = pkgs.lib.mkLuaInline
+            "	require('telescope.themes').get_dropdown(),\n";
+        };
+      }
+      { name = "harpoon"; }
+    ];
     enable = true;
     mappings = {
       buffers = null;
