@@ -7,6 +7,7 @@ in {
     blueberry
     obs-studio
     nautilus
+    vlc
     discord
     gimp3
 

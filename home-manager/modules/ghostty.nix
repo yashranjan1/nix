@@ -11,6 +11,9 @@
       cursor-style-blink = "false";
       shell-integration-features = "no-cursor";
 
+      gtk-tabs-location = "bottom";
+
+      keybind = [ "ctrl+m=new_tab" "ctrl+e=next_tab" "ctrl+i=previous_tab" ];
       background-opacity = 0.8;
     };
   };

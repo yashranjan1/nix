@@ -231,30 +231,5 @@
       action = "<cmd>lua vim.diagnostic.goto_prev()<CR>";
       desc = "[P]revious diagnostic message";
     }
-    # INFO: Harpoon
-    {
-      key = "<leader>hx";
-      mode = "n";
-      action = "<cmd>lua require('harpoon'):list():add()<CR>";
-      desc = "[H]arpoon [X] mark";
-    }
-    {
-      key = "<leader>hn";
-      mode = "n";
-      action = "<cmd>lua require('harpoon'):list():next()<CR>";
-      desc = "[H]arpoon [N]ext file";
-    }
-    {
-      key = "<leader>hp";
-      mode = "n";
-      action = "<cmd>lua require('harpoon'):list():prev()<CR>";
-      desc = "[H]arpoon [P]rev file";
-    }
-    {
-      key = "<leader>sm";
-      mode = "n";
-      action = "<cmd>Telescope harpoon marks<CR>";
-      desc = "[S]earch [M]arked";
-    }
   ];
 }

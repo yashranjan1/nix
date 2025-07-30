@@ -4,10 +4,7 @@
   viAlias = true;
   lsp.enable = true;
 
-  statusline.lualine = {
-    enable = true;
-    theme = "tokyonight";
-  };
+  mini.statusline = { enable = true; };
 
   clipboard = {
     enable = true;
@@ -48,7 +45,6 @@
     tailwindcss-language-server
     isort
     phpactor
-    shopify-cli
     black
     basedpyright
     vimPlugins.friendly-snippets
@@ -96,5 +92,10 @@
         end, { desc = "[N]ew [V]ertical [T]erminal" })
 
       require("luasnip.loaders.from_vscode").lazy_load()
+
+      vim.keymap.set('i', '<C-c>', '<Esc>`^')
+      vim.keymap.set('n', '<C-c>', '<Esc>`^')
+      vim.keymap.set('v', '<C-c>', '<Esc>`^')
+      vim.g.omni_sql_no_default_maps = 1
     '';
 }

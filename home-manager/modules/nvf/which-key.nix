@@ -9,6 +9,7 @@
       "<leader>nt" = "[N]ew [T]ab";
       "<leader>b" = "[B]uffer";
       "<leader>s" = "[S]earch";
+      "<leader>h" = "[H]arpoon";
       "<leader>t" = "[T]ab";
       "<leader>e" = "[E]rror Diagnostics";
     };
