@@ -39,6 +39,7 @@
 
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         inherit system;
+        specialArgs = { inherit unstable; };
         modules = [ ./system/configuration.nix ];
       };
       homeConfigurations.yash = home-manager.lib.homeManagerConfiguration {

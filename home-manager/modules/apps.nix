@@ -10,6 +10,8 @@ in {
     vlc
     discord
     gimp3
+    postman
+    unstable.ollama-rocm
 
     # packages
     gh
