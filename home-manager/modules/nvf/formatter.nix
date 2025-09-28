@@ -12,6 +12,7 @@
           __raw = ''{ "prettierd", "prettier", stop_after_first = true }'';
         };
         nix = [ "nixfmt" ];
+        haskell = [ "ormolu" ];
       };
 
       format_on_save = {

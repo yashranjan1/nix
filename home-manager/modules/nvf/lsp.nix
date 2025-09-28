@@ -51,6 +51,7 @@
       gopls = { };
       tailwindcss = { };
       marksman = { };
+      hls = { };
       html = { };
     };
     lspSignature.enable = true;

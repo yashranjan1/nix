@@ -38,5 +38,7 @@ in {
     lsd
     fastfetch
     pnpm
+    ghc
+    cabal-install
   ];
 }

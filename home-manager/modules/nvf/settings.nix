@@ -36,6 +36,8 @@
     vue-language-server
     sqlfluff
     vtsls
+    haskell-language-server
+    ormolu
     vscode-langservers-extracted
     wl-clipboard
     nixfmt-classic
