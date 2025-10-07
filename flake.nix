@@ -1,3 +1,4 @@
+
 {
   description = "My system config";
 
@@ -12,48 +13,58 @@
     ags = { url = "github:aylur/ags"; };
   };
 
-  outputs = { nixpkgs, home-manager, nvf, nixpkgs-unstable, ... }@inputs:
+  outputs = { nixpkgs, self, home-manager, nvf, nixpkgs-unstable, ... }@inputs:
     let
-      system = "x86_64-linux";
-
-      pkgs = nixpkgs.legacyPackages.x86_64-linux;
-
-      lib = pkgs.lib;
-
-      unstable = import nixpkgs-unstable {
-        inherit system;
-        config.allowUnfree = true;
-      };
-
-      vimConfig = {
-        config.vim =
-          import ./home-manager/modules/nvf/bundle.nix { inherit pkgs lib; };
-      };
-
-      customNeovim = nvf.lib.neovimConfiguration {
-        inherit pkgs;
-        modules = [ vimConfig ];
-      };
+      forAllSystems = f: nixpkgs.lib.genAttrs
+        [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ]
+        (system: f system);
     in {
-      packages.${system}.vim = customNeovim.neovim;
+      packages = forAllSystems (system:
+        let
+          pkgs = import nixpkgs {
+            inherit system;
+            config.allowUnfree = true;
+          };
+          lib = pkgs.lib;
 
+          unstable = import nixpkgs-unstable {
+            inherit system;
+            config.allowUnfree = true;
+          };
+
+          vimConfig = {
+            config.vim = import ./home-manager/modules/nvf/bundle.nix {
+              inherit pkgs lib;
+            };
+          };
+
+          customNeovim = nvf.lib.neovimConfiguration {
+            inherit pkgs;
+            modules = [ vimConfig ];
+          };
+        in {
+          vim = customNeovim.neovim;
+        });
+
+      # keep your nixos config
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit unstable; };
+        system = "x86_64-linux";
+        specialArgs = { inherit nixpkgs-unstable; };
         modules = [ ./system/configuration.nix ];
       };
+
+      # keep your home config (still Linux-only, unless you want Darwin too)
       homeConfigurations.yash = home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
-          inherit system;
+          system = "x86_64-linux";
           config.allowUnfree = true;
         };
-
-        extraSpecialArgs = { inherit inputs unstable; };
-
+        extraSpecialArgs = { inherit inputs nixpkgs-unstable; };
         modules = [
-          { home.packages = [ customNeovim.neovim ]; }
+          { home.packages = [ self.packages."x86_64-linux".vim ]; }
           ./home-manager/home.nix
         ];
       };
     };
 }
+
