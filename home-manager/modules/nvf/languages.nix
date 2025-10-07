@@ -14,6 +14,10 @@
         package = pkgs.prettierd;
       };
     };
+    java = {
+      enable = true;
+      lsp.enable = true;
+    };
     go = {
       enable = true;
       format.enable = true;

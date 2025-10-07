@@ -13,6 +13,7 @@
         };
         nix = [ "nixfmt" ];
         haskell = [ "ormolu" ];
+        java = [ "google-java-format" ];
       };
 
       format_on_save = {
