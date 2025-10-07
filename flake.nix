@@ -1,4 +1,3 @@
-
 {
   description = "My system config";
 
@@ -15,9 +14,13 @@
 
   outputs = { nixpkgs, self, home-manager, nvf, nixpkgs-unstable, ... }@inputs:
     let
-      forAllSystems = f: nixpkgs.lib.genAttrs
-        [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ]
-        (system: f system);
+      forAllSystems = f:
+        nixpkgs.lib.genAttrs [
+          "x86_64-linux"
+          "aarch64-linux"
+          "x86_64-darwin"
+          "aarch64-darwin"
+        ] (system: f system);
     in {
       packages = forAllSystems (system:
         let
@@ -42,9 +45,7 @@
             inherit pkgs;
             modules = [ vimConfig ];
           };
-        in {
-          vim = customNeovim.neovim;
-        });
+        in { vim = customNeovim.neovim; });
 
       # keep your nixos config
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
@@ -59,7 +60,13 @@
           system = "x86_64-linux";
           config.allowUnfree = true;
         };
-        extraSpecialArgs = { inherit inputs nixpkgs-unstable; };
+        extraSpecialArgs = {
+          inherit inputs nixpkgs-unstable;
+          unstable = import nixpkgs-unstable {
+            system = "x86_64-linux";
+            config.allowUnfree = true;
+          };
+        };
         modules = [
           { home.packages = [ self.packages."x86_64-linux".vim ]; }
           ./home-manager/home.nix

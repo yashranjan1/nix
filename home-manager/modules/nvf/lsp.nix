@@ -46,7 +46,7 @@
       };
       basedpyright = { };
       nixd = { };
-      phpactor = { };
+      java_language_server = { };
       shopify_theme_ls = { };
       gopls = { };
       tailwindcss = { };

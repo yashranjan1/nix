@@ -32,25 +32,27 @@
   };
 
   extraPackages = with pkgs; [
+    wl-clipboard
+    vimPlugins.friendly-snippets
+    ripgrep
+
+    # lsp related
     stylua
     vue-language-server
     sqlfluff
     vtsls
-    haskell-language-server
     ormolu
+    haskell-language-server
     vscode-langservers-extracted
-    wl-clipboard
+    tailwindcss-language-server
+    java-language-server
     nixfmt-classic
     marksman
     sqls
     nixd
-    tailwindcss-language-server
     isort
-    phpactor
     black
     basedpyright
-    vimPlugins.friendly-snippets
-    ripgrep
   ];
 
   luaConfigRC.sqlconfig = # lua
