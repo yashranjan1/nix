@@ -43,6 +43,7 @@
     vtsls
     ormolu
     haskell-language-server
+    google-java-format
     vscode-langservers-extracted
     tailwindcss-language-server
     java-language-server

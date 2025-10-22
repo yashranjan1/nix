@@ -6,6 +6,8 @@ in {
     google-chrome
     blueberry
     obs-studio
+    jetbrains-toolbox
+    jetbrains.idea-community-src
     nautilus
     vlc
     discord

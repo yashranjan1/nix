@@ -53,6 +53,7 @@
       marksman = { };
       hls = { };
       html = { };
+      protols = { };
     };
     lspSignature.enable = true;
     mappings = {

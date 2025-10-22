@@ -33,7 +33,7 @@
   hardware.bluetooth.powerOnBoot = true;
 
   # Set your time zone.
-  time.timeZone = "Asia/Kolkata";
+  time.timeZone = "Europe/Brussels";
   time.hardwareClockInLocalTime = true;
 
   fonts.packages = with pkgs; [ source-han-sans-vf-ttf ];
